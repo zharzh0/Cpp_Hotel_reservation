@@ -16,6 +16,7 @@
 
 # Debugger Files
 *.pdb
+*.dwo
 
 # Compiled Dynamic libraries
 *.so
@@ -37,5 +38,22 @@
 *.out
 *.app
 
-# debug information files
-*.dwo
+# Visual Studio cache
+.vs/
+
+# User-specific Visual Studio files
+*.user
+*.vcxproj.user
+
+# Build output directories
+Debug/
+Release/
+x64/
+x86/
+
+# Misc intermediate / temp files
+*.ipch
+*.db
+*.opendb
+*.tlog
+*.log
