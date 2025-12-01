@@ -38,22 +38,35 @@
 *.out
 *.app
 
-# Visual Studio cache
+# Visual Studio cache / temp
 .vs/
+*.cache
+*.VC.db
+*.VC.opendb
 
-# User-specific Visual Studio files
-*.user
+# Visual Studio project and solution files (IGNORE THEM)
+*.sln
+*.vcxproj
+*.vcxproj.filters
 *.vcxproj.user
+*.aps
+*.rc
 
-# Build output directories
+# Build output
 Debug/
 Release/
 x64/
 x86/
+ARM/
+ARM64/
 
-# Misc intermediate / temp files
+# Misc intermediate & temp
 *.ipch
 *.db
 *.opendb
 *.tlog
 *.log
+
+# Other backups / temp
+*.tmp
+*.bak
