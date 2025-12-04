@@ -44,6 +44,7 @@ int Hotel::reserveRoom(int roomNumber) {
         }
     }
 
+    return -1;
 }
 
 int Hotel::reserveFirstAvailable() {
