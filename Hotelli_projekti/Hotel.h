@@ -9,21 +9,22 @@ class Hotel
 private:
 	struct room
 	{
-		
-			int number;
-			bool reserved;
+		int number;
+		int reservationID;
+		bool reserved;
 
-			room(int n, bool taken)
-			{
-				number = n;
-				reserved = taken;
-			}
-
+		room(int n)
+		{
+			number = n;
+			reservationID = 0;
+			reserved = false;
+		}
 	};
 
 	vector<room> rooms;
 public:
 	Hotel(int roomCount);
 	void printRooms() const;
+	int reserveRoom(int roomNumber);
+	int reserveFirstAvailable();
 };
-
