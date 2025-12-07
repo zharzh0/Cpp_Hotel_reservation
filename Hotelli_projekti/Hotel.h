@@ -21,10 +21,23 @@ private:
 		}
 	};
 
+	struct reservation
+	{
+		int id;
+		int roomNumber;
+		string guestName;
+
+		reservation(int id_, int room_, const string& name_) 
+			: id(id_), roomNumber(room_), guestName(name_) {}
+	};
+
 	vector<room> rooms;
+	vector<reservation> reservations;
+
 public:
 	Hotel(int roomCount);
 	void printRooms() const;
-	int reserveRoom(int roomNumber);
-	int reserveFirstAvailable();
+	void printReservation(int id) const;
+	int reserveRoom(int roomNumber, const string& guestName);
+	int reserveFirstAvailable(const string& guestName);
 };

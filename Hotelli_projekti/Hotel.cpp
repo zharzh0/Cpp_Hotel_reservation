@@ -27,7 +27,28 @@ void Hotel::printRooms() const {
     cout << "Huoneita saatavilla: " << roomsAvailable << endl;
 }
 
-int Hotel::reserveRoom(int roomNumber) {
+void Hotel::printReservation(int id) const {
+
+    for (int i = 0; i < reservations.size(); i++) {
+
+        if (reservations[i].id == id) {
+
+            cout << "Varaus loytyi:\n\n";
+            cout << "---------------------------\n";
+            cout << "Varaus ID:      " << reservations[i].id << "\n";
+            cout << "Huonenumero:    " << reservations[i].roomNumber << "\n";
+            cout << "Varaajan nimi:  " << reservations[i].guestName << "\n";
+            cout << "---------------------------\n\n";
+
+            return;
+        }
+    }
+
+    cout << "Varausta ID:lla " << id << " ei loytynyt. \n\n";
+
+}
+
+int Hotel::reserveRoom(int roomNumber, const string& guestName) {
 
     for (int i = 0; i < rooms.size(); i++) {
 
@@ -39,15 +60,19 @@ int Hotel::reserveRoom(int roomNumber) {
             }
 
             rooms[i].reserved = true;
-            rooms[i].reservationID = 10000 + rand() % 30001;
-            return rooms[i].reservationID;
+            int generatedID = 10000 + rand() % 30001;
+            rooms[i].reservationID = generatedID;
+
+            reservations.emplace_back(generatedID, roomNumber, guestName);
+
+            return generatedID;
         }
     }
 
     return -1;
 }
 
-int Hotel::reserveFirstAvailable() {
+int Hotel::reserveFirstAvailable(const string& guestName) { 
 
     for (int i = 0; i < rooms.size(); i++) {
         if (rooms[i].reserved == false) {
@@ -56,6 +81,8 @@ int Hotel::reserveFirstAvailable() {
 
             int generatedID = 10000 + rand() % 30001;
             rooms[i].reservationID = generatedID;
+
+            reservations.emplace_back(generatedID, rooms[i].number, guestName);
 
             return generatedID;
         }
