@@ -6,10 +6,17 @@ using namespace std;
 int basicUI();
 int reserveUI(Hotel& hotel);
 
+Hotel static createHotel() {
+	int hotelSize = 10 + rand() % 191;
+	return Hotel(hotelSize);
+}
+
 int main() {
 
 	srand(time(nullptr));
-	Hotel h(50);
+	
+	Hotel h = createHotel();
+
 	cout << "Tervetuloa hotelliin \n \n";
 	h.printRooms();
 

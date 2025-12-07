@@ -72,21 +72,12 @@ int Hotel::reserveRoom(int roomNumber, const string& guestName) {
     return -1;
 }
 
-int Hotel::reserveFirstAvailable(const string& guestName) { 
-
+int Hotel::getFirstAvailableRoomNumber() const {
     for (int i = 0; i < rooms.size(); i++) {
-        if (rooms[i].reserved == false) {
 
-            rooms[i].reserved = true;
-
-            int generatedID = 10000 + rand() % 30001;
-            rooms[i].reservationID = generatedID;
-
-            reservations.emplace_back(generatedID, rooms[i].number, guestName);
-
-            return generatedID;
+        if (!rooms[i].reserved) {
+            return rooms[i].number;
         }
     }
-
     return -1;
 }

@@ -39,5 +39,5 @@ public:
 	void printRooms() const;
 	void printReservation(int id) const;
 	int reserveRoom(int roomNumber, const string& guestName);
-	int reserveFirstAvailable(const string& guestName);
+	int getFirstAvailableRoomNumber() const;
 };

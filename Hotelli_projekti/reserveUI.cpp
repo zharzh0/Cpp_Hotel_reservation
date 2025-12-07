@@ -20,18 +20,20 @@ int reserveUI(Hotel& hotel) {
 
 	if (selection == 1) {
 
-		int reservationID = hotel.reserveFirstAvailable(guestName);
+		int roomNumber = hotel.getFirstAvailableRoomNumber();
 	
-		if (reservationID == -1)
+		if (roomNumber == -1)
 		{
 			cout << "Ei vapaita huoneita.";
 			return -1;
 		}
-		else
-		{
-			cout << "Huone varattu onnistuneesti! Varauksen ID: " << reservationID << endl;
-			return reservationID;
-		}
+
+		int reservationID = hotel.reserveRoom(roomNumber, guestName);
+
+		cout << "Huone varattu onnistuneesti!\n";
+		cout << "Huonenumero: " << roomNumber << "\n";
+		cout << "Varauksen ID: " << reservationID << "\n";
+		return reservationID;
 	}
 	
 	else if (selection == 2) {
@@ -47,7 +49,9 @@ int reserveUI(Hotel& hotel) {
 			return -1;
 		}
 		else {
-			cout << "Huone varattu onnistuneesti! Varauksen ID: " << reservationID << endl;
+			cout << "Huone varattu onnistuneesti!\n";
+			cout << "Huonenumero: " << roomNumber << "\n";
+			cout << "Varauksen ID: " << reservationID << "\n";
 			return reservationID;
 		}
 	}
