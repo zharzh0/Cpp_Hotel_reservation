@@ -11,7 +11,9 @@ int basicUI() {
 	cout << "2. Tarkastele varaustasi\n";
 	cout << "3. Peru varaus\n";
 	cout << "4. Vapaiden huoneiden maara\n";
-	cout << "5. Sulje ohjelma\n";
+	cout << "5. Etsi varaus ID:lla\n";
+	cout << "6. Sulje ohjelma\n\n";
+	
 	
 	cin >> selection;
 	return selection;

@@ -23,7 +23,15 @@ int main() {
 		case 4: h.printRooms();
 			break;
 
-		case 5: cout << "Ohjelma suljetaan.";
+		case 5: {
+			int id;
+			cout << "Anna varauksen ID: \n";
+			cin >> id;
+			h.printReservation(id);
+			break;
+		}
+
+		case 6: cout << "Ohjelma suljetaan.";
 			return -1;
 
 		default: cout << "Virheellinen syote. ";
