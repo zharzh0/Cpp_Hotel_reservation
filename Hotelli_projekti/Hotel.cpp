@@ -38,6 +38,8 @@ void Hotel::printReservation(int id) const {
             cout << "Varaus ID:      " << reservations[i].id << "\n";
             cout << "Huonenumero:    " << reservations[i].roomNumber << "\n";
             cout << "Varaajan nimi:  " << reservations[i].guestName << "\n";
+            cout << "Varatut yot:    " << reservations[i].nights << "\n";
+            cout << "Hinta:          " << reservations[i].price << "\n";
             cout << "---------------------------\n\n";
 
             return;
@@ -48,7 +50,7 @@ void Hotel::printReservation(int id) const {
 
 }
 
-int Hotel::reserveRoom(int roomNumber, const string& guestName) {
+int Hotel::reserveRoom(int roomNumber, const string& guestName, int nights, double price) {
 
     for (int i = 0; i < rooms.size(); i++) {
 
@@ -60,10 +62,10 @@ int Hotel::reserveRoom(int roomNumber, const string& guestName) {
             }
 
             rooms[i].reserved = true;
-            int generatedID = 10000 + rand() % 30001;
+            int generatedID = 10000 + rand() % 100000;
             rooms[i].reservationID = generatedID;
 
-            reservations.emplace_back(generatedID, roomNumber, guestName);
+            reservations.emplace_back(generatedID, roomNumber, guestName, nights, price);
 
             return generatedID;
         }
