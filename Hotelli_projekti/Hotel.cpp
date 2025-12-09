@@ -33,12 +33,12 @@ void Hotel::printRooms() const {
     cout << "Huoneita saatavilla: " << roomsAvailable << endl;
 }
 
-//print reservation details using ID
-void Hotel::printReservation(int id) const {
+//print reservation details using guests name
+void Hotel::printReservation(const string& guestName){
 
     for (int i = 0; i < reservations.size(); i++) {
 
-        if (reservations[i].id == id) {
+        if (reservations[i].guestName == guestName) {
 
             cout << "Varaus loytyi:\n\n";
             cout << "---------------------------\n";
@@ -53,7 +53,7 @@ void Hotel::printReservation(int id) const {
         }
     }
 
-    cout << "Varausta ID:lla " << id << " ei loytynyt. \n\n";
+    cout << "Varausta nimella " << guestName << " ei loytynyt. \n\n";
 }
 
 
@@ -105,6 +105,10 @@ int Hotel::reserveRoom(int roomNumber, const string& guestName, int nights, doub
 
     return -1;
 }
+
+//void Hotel::cancelReservation(int id) {
+//    
+//}
 
 //find the first hotel room thats available for reservation
 int Hotel::getFirstAvailableRoomNumber() const {

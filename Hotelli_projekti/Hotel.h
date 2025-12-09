@@ -45,8 +45,10 @@ public:
 	//public methods available to other parts of the app
 	Hotel(int roomCount);
 	void printRooms() const; 
-	void printReservation(int id) const;
+	void printReservation(const string& guestName);
 	void printAllReservations() const;
 	int reserveRoom(int roomNumber, const string& guestName, int nights, double price);
+	//void cancelReservation(int id);
 	int getFirstAvailableRoomNumber() const;
+
 };

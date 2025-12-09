@@ -21,9 +21,9 @@ int main() {
 	Hotel h = createHotel();
 
 	cout << "Tervetuloa hotelliin \n \n";
-	h.printRooms(); 
 
 	while (true) {
+		h.printRooms();
 		int selection = basicUI();
 		
 		switch (selection) {
@@ -33,18 +33,15 @@ int main() {
 		case 2: h.printAllReservations();
 			break;
 
-		case 4: h.printRooms();
-			break;
-
-		case 5: {
-			int id;
-			cout << "Anna varauksen ID: \n";
-			cin >> id;
-			h.printReservation(id);
+		case 3: {
+			string guestName;
+			cout << "Anna nimi jolla varaus on tehty: \n";
+			cin >> guestName;
+			h.printReservation(guestName);
 			break;
 		}
 
-		case 6: cout << "Ohjelma suljetaan.";
+		case 4: cout << "Ohjelma suljetaan.";
 			return -1;
 
 		default: cout << "Virheellinen syote. ";
