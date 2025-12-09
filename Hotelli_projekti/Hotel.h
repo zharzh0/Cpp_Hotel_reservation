@@ -50,5 +50,6 @@ public:
 	int reserveRoom(int roomNumber, const string& guestName, int nights, double price);
 	//void cancelReservation(int id);
 	int getFirstAvailableRoomNumber() const;
+	int getRoomCount() const;
 
 };

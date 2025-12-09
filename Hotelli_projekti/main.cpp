@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "Hotel.h"
+#include <string>
 
 using namespace std;
 int basicUI();
@@ -36,7 +37,7 @@ int main() {
 		case 3: {
 			string guestName;
 			cout << "Anna nimi jolla varaus on tehty: \n";
-			cin >> guestName;
+			getline(cin, guestName);
 			h.printReservation(guestName);
 			break;
 		}
@@ -50,7 +51,6 @@ int main() {
 		
 		//clean the buffer and wait for user to press enter
 		cout << "Paina Enter jatkaaksesi...\n";
-		cin.ignore(); 
 		cin.get();
 		system("cls"); //clear the terminal (on windows machines)
 	};

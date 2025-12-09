@@ -13,6 +13,12 @@ Hotel::Hotel(int roomCount) {
 
 //METHODS FOR HOTEL CLASS BELOW
 
+
+//get room count
+int Hotel::getRoomCount() const {
+    return static_cast<int>(rooms.size());
+}
+
 //print all available rooms
 void Hotel::printRooms() const {
 

@@ -65,9 +65,11 @@ int reserveUI(Hotel& hotel) {
 	else if (selection == 2) {
 
 		while (true) {
-			int roomNumber;
-			cout << "Anna huoneen numero: ";
-			cin >> roomNumber;
+			int roomNumber = readInt(
+				"Anna huoneen numero: ",
+				1,
+				hotel.getRoomCount() //setting room count dynamically for readInt
+			);
 
 			int reservationID = hotel.reserveRoom(roomNumber, guestName, nights, totalPrice);
 
