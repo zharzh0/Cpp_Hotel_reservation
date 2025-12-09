@@ -1,6 +1,8 @@
 #include "Hotel.h"
 #include <cstdlib>
 
+
+//constructor for adding roomCount amount of rooms into the rooms vector
 Hotel::Hotel(int roomCount) {
     for (int i = 1; i <= roomCount; ++i)
     {
@@ -8,6 +10,10 @@ Hotel::Hotel(int roomCount) {
     }
 }
 
+
+//METHODS FOR HOTEL CLASS BELOW
+
+//print all available rooms
 void Hotel::printRooms() const {
 
     int roomsReserved = 0;
@@ -27,6 +33,7 @@ void Hotel::printRooms() const {
     cout << "Huoneita saatavilla: " << roomsAvailable << endl;
 }
 
+//print reservation details using ID
 void Hotel::printReservation(int id) const {
 
     for (int i = 0; i < reservations.size(); i++) {
@@ -50,6 +57,7 @@ void Hotel::printReservation(int id) const {
 
 }
 
+//reserve any room thats available
 int Hotel::reserveRoom(int roomNumber, const string& guestName, int nights, double price) {
 
     for (int i = 0; i < rooms.size(); i++) {
@@ -61,10 +69,11 @@ int Hotel::reserveRoom(int roomNumber, const string& guestName, int nights, doub
                 return -1;  
             }
 
-            rooms[i].reserved = true;
-            int generatedID = 10000 + rand() % 100000;
+            rooms[i].reserved = true; //setting the room as reserved 
+            int generatedID = 10000 + rand() % 90000; //generate random ID between 10000-99999
             rooms[i].reservationID = generatedID;
 
+            //putting the reservation into the reservations vector
             reservations.emplace_back(generatedID, roomNumber, guestName, nights, price);
 
             return generatedID;
@@ -74,6 +83,7 @@ int Hotel::reserveRoom(int roomNumber, const string& guestName, int nights, doub
     return -1;
 }
 
+//find the first hotel room thats available for reservation
 int Hotel::getFirstAvailableRoomNumber() const {
     for (int i = 0; i < rooms.size(); i++) {
 

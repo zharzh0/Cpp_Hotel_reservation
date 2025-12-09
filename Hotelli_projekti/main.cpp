@@ -6,6 +6,7 @@ using namespace std;
 int basicUI();
 int reserveUI(Hotel& hotel);
 
+//randomize how many rooms the hotel will have
 Hotel static createHotel() {
 	int hotelSize = 10 + rand() % 191;
 	return Hotel(hotelSize);
@@ -13,12 +14,14 @@ Hotel static createHotel() {
 
 int main() {
 
+	//seed for random number generations
 	srand(time(nullptr));
 	
+	// initializing a new hotel with random amount of rooms
 	Hotel h = createHotel();
 
 	cout << "Tervetuloa hotelliin \n \n";
-	h.printRooms();
+	h.printRooms(); 
 
 	while (true) {
 		int selection = basicUI();
@@ -45,8 +48,9 @@ int main() {
 			break;
 		}
 		
+		//clean the buffer and wait for user to press enter
 		cout << "Paina Enter jatkaaksesi...\n";
-		cin.ignore();
+		cin.ignore(); 
 		cin.get();
 	};
 }

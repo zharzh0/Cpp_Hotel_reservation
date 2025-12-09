@@ -4,6 +4,7 @@
 
 using namespace std;
 
+//telling the file a readInt exists in the project
 int readInt(const string& description, int min, int max);
 
 int reserveUI(Hotel& hotel) {
@@ -15,12 +16,14 @@ int reserveUI(Hotel& hotel) {
 		cout << "Mille nimelle varaus tulee? Syota nimi: \n";
 		getline(cin, guestName);
 
+		//letting user try again if name is empty
 		if (!guestName.empty())
 			break;
 
 		cout << "Nimi ei voi olla tyhja, yrita uudelleen...\n";
 	}
 	
+	//using the readInt validation function
 	int selection = readInt(
 		"Valitaanko huone automaattisesti vai itse? 1 = auto, 2 = manuaalinen: \n",
 		1,
@@ -33,8 +36,10 @@ int reserveUI(Hotel& hotel) {
 		10
 	);
 
+	//calculate price of the stay depending of how many nights you stay
 	double totalPrice = nights * pricePerNight;
 
+	//automatically choose the room number
 	if (selection == 1) {
 
 		int roomNumber = hotel.getFirstAvailableRoomNumber();
@@ -52,9 +57,11 @@ int reserveUI(Hotel& hotel) {
 		cout << "Varauksen ID: " << reservationID << "\n";
 		cout << "Varattujen oiden maara: " << nights << "\n";
 		cout << "Hinta: " << totalPrice << "\n";
+
 		return reservationID;
 	}
 	
+	//letting user manually choose the room number
 	else if (selection == 2) {
 
 		while (true) {

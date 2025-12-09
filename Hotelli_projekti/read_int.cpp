@@ -2,6 +2,9 @@
 
 using namespace std;
 
+//reads a validated integer input. Displays "description" as a prompt and ensures the value is between min and max.
+//invalid input is cleared and the user is asked again until a valid number is entered.
+
 int readInt(const string& description, int min, int max) {
 
 	int value;
