@@ -54,7 +54,30 @@ void Hotel::printReservation(int id) const {
     }
 
     cout << "Varausta ID:lla " << id << " ei loytynyt. \n\n";
+}
 
+
+//print all made reservations
+void Hotel::printAllReservations() const {
+
+    if (reservations.empty()) {
+        cout << "Ei yhtaan  varausta.\n\n";
+        return;
+    }
+
+    cout << "Kaikki varaukset:\n\n";
+
+    for (int i = 0; i < reservations.size(); i++) {
+       
+            cout << "---------------------------\n";
+            cout << "Varaus ID:      " << reservations[i].id << "\n";
+            cout << "Huonenumero:    " << reservations[i].roomNumber << "\n";
+            cout << "Varaajan nimi:  " << reservations[i].guestName << "\n";
+            cout << "Varatut yot:    " << reservations[i].nights << "\n";
+            cout << "Hinta:          " << reservations[i].price << "\n";
+            cout << "---------------------------\n\n";
+
+    }
 }
 
 //reserve any room thats available

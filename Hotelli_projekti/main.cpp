@@ -7,7 +7,7 @@ int basicUI();
 int reserveUI(Hotel& hotel);
 
 //randomize how many rooms the hotel will have
-Hotel static createHotel() {
+static Hotel createHotel() {
 	int hotelSize = 10 + rand() % 191;
 	return Hotel(hotelSize);
 }
@@ -28,6 +28,9 @@ int main() {
 		
 		switch (selection) {
 		case 1: reserveUI(h);
+			break;
+
+		case 2: h.printAllReservations();
 			break;
 
 		case 4: h.printRooms();
@@ -52,6 +55,7 @@ int main() {
 		cout << "Paina Enter jatkaaksesi...\n";
 		cin.ignore(); 
 		cin.get();
+		system("cls"); //clear the terminal (on windows machines)
 	};
 }
 

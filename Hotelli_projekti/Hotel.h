@@ -46,6 +46,7 @@ public:
 	Hotel(int roomCount);
 	void printRooms() const; 
 	void printReservation(int id) const;
+	void printAllReservations() const;
 	int reserveRoom(int roomNumber, const string& guestName, int nights, double price);
 	int getFirstAvailableRoomNumber() const;
 };

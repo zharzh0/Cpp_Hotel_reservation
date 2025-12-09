@@ -22,18 +22,18 @@ int reserveUI(Hotel& hotel) {
 
 		cout << "Nimi ei voi olla tyhja, yrita uudelleen...\n";
 	}
-	
-	//using the readInt validation function
-	int selection = readInt(
-		"Valitaanko huone automaattisesti vai itse? 1 = auto, 2 = manuaalinen: \n",
-		1,
-		2
-	);
 
 	int nights = readInt(
 		"Moneksiko yoksi varaus tehdaan? 1-10: \n",
 		1,
 		10
+	);
+
+	//using the readInt validation function
+	int selection = readInt(
+		"Valitaanko huone automaattisesti vai itse? 1 = auto, 2 = manuaalinen: \n",
+		1,
+		2
 	);
 
 	//calculate price of the stay depending of how many nights you stay
